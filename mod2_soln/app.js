@@ -8,6 +8,13 @@
         buy.checkList=function(itemIndex){
             ShoppingListCheckOffService.checkList(itemIndex);
         }
+        // buy.buyCond=false;
+        // buy.Cond=function(){
+        //     if (buy.items.length===0){ //items is dynamic while buyList is static
+        //         buy.buyCond=true;
+        //         console.log(buy.buyCond)
+        //     }
+        // }
     }]);
     
     app.controller("AlreadyBoughtController",["ShoppingListCheckOffService",function(ShoppingListCheckOffService){
@@ -31,7 +38,7 @@
         ];
         
         var boughtList=[];
-        
+
         service.checkList=function(itemIndex){
             var item= buyList[itemIndex];
             boughtList.push(item);
