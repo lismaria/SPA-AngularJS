@@ -1,5 +1,10 @@
+//Please Note that I have used the alternative method which sir mentioned 
+//so my solution might not look the way sir did
+//Thank You
+
 (function () {
     'use strict';
+    
     var app=angular.module("ShoppingListCheckOff",[]);
     
     app.controller("ToBuyController",["ShoppingListCheckOffService",function(ShoppingListCheckOffService){
@@ -8,13 +13,6 @@
         buy.checkList=function(itemIndex){
             ShoppingListCheckOffService.checkList(itemIndex);
         }
-        // buy.buyCond=false;
-        // buy.Cond=function(){
-        //     if (buy.items.length===0){ //items is dynamic while buyList is static
-        //         buy.buyCond=true;
-        //         console.log(buy.buyCond)
-        //     }
-        // }
     }]);
     
     app.controller("AlreadyBoughtController",["ShoppingListCheckOffService",function(ShoppingListCheckOffService){

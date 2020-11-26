@@ -38,10 +38,6 @@
           <td><li></li></td><td>Buy {{x.quantity}} {{x.name}} </td>
           <td><button class="btn btn-default" ng-click="buy.checkList($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button></td></tr>
      </table>
-     <!-- <ul>
-       <li ng-repeat="x in buy.buyList">Buy {{x.quantity}} of {{x.name}} <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
-       <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
-     </ul> -->
      <div ng-if="buy.items.length===0" class="emptyMessage">Everything is bought!</div>
     </div>
 
@@ -52,9 +48,6 @@
       <tr ng-repeat="x in bought.items">
          <td><li></li></td><td>Bought {{x.quantity}} {{x.name}} </td></tr>
     </table>
-     <!-- <ul>
-       <li ng-repeat="x in bought.items">Bought {{x.quantity}} {{x.name}}</li>
-     </ul> -->
      <div ng-if="bought.items.length===0" class="emptyMessage">Nothing bought yet.</div>
     </div>
   </div>
