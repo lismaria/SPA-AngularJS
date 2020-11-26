@@ -3,6 +3,7 @@
     
     var app=angular.module("LunchCheck",[]);
     app.controller("LunchCheckController",["$scope",function($scope){
+    //Just to let you know I have used the second method of injector(not the one sir prefers...)
         $scope.msg = "";
         $scope.dishes = "";
         $scope.arr = "";
