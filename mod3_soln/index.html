@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>    
-     
+    <script src="app.js"></script>
   </head>
 <body ng-app="NarrowItDownApp">
   <div class="container" ng-controller="NarrowItDownController as narrowCtrl">
@@ -20,8 +20,8 @@
       </div>
     </div>
     <!-- found-items should be implemented as a component -->
-    <found-items found-items="narrowCtrl.found" on-remove="menu.removeMenuItem(index)" on-empty="narrowCtrl.message"></found-items>
+    <found-items found-items="narrowCtrl.found" on-remove="narrowCtrl.removeMenuItem(index)" on-empty="narrowCtrl.message"></found-items>
   </div>
-  <script src="app.js"></script>
+  
 </body>
 </html>

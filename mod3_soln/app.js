@@ -5,7 +5,7 @@
 (function(){
     'use strict';
 
-    var app=angular.module("NarrowItDownApp",[]);//.controller('NarrowItDownController', NarrowItDownController);
+    var app=angular.module("NarrowItDownApp",[]);
 
     app.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
