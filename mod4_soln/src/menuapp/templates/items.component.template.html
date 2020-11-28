@@ -1,6 +1,6 @@
 <table>
-    <tr><th>Name</th><th>Description</th><th>Price</th></tr>
+    <tr><th>Name</th><th>Short name</th><th>Description</th><th>Price</th></tr>
     <tr ng-repeat="categItem in $ctrl.items">
-        <td>{{categItem.}}</td><td>{{categItem.name}}</td><td>{{categItem.description}}</td><td>{{categItem.price_large | currency :'₹'}}</td>
+        <td>{{categItem.}}</td><td>{{categItem.name}}</td><td>{{categorieItem.short_name}}</td><td>{{categItem.description}}</td><td>{{categItem.price_large | currency}}</td>
     </tr>
 </table>

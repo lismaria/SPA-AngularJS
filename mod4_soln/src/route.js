@@ -1,8 +1,6 @@
 (function(){
    'use strict' ;
     var app= angular.module('MenuApp');
-
-    app.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
     
     app.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider){
         $urlRouterProvider.otherwise('/');
@@ -13,7 +11,7 @@
             })
 
             .state('categories',{
-                url: '/categories/{categoryShortName}',
+                url: '/categories',
                 templateUrl: 'src/menuapp/templates/categories.template.html',
                 controller: 'categoriesController as categCtrl',
                 resolve: {
@@ -36,6 +34,6 @@
                         return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
                     }]
                 }
-            })
+            });
     }]);
-})()
+})();
