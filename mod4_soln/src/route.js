@@ -22,5 +22,20 @@
                     }]
                 }
             })
+
+            .state('items',{
+                url: '/categories/{categoryShortName}',
+                templateUrl: 'src/menuapp/templates/items.template.html',
+                controller: 'itemsController as itemCtrl',
+                params: {
+                    categoryShortName: null,
+                    categoryName: null
+                },
+                resolve: {
+                    items: ['$stateParams', 'MenuDataService', function($stateParams, MenuDataService) {
+                        return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+                    }]
+                }
+            })
     }]);
 })()
