@@ -1,12 +1,6 @@
-<!-- <table>
-    <tr><th>Name</th><th>Short name</th><th>Description</th><th>Price</th></tr>
-    <tr ng-repeat="categItem in $ctrl.items">
-        <td>{{categItem.name}}</td><td>{{categItem.short_name}}</td><td>{{categItem.description}}</td><td>{{categItem.price_large | currency}}</td>
-    </tr>
-</table> -->
-
-<ul>
-    <li ng-repeat="item in $ctrl.items">
-      {{item.name}}
-    </li>
-  </ul>
+<table>
+  <tr><th>Name</th><th>Description</th><th>Price</th></tr>
+  <tr ng-repeat="categItem in $ctrl.items">
+      <td>{{categItem.name}}</td><td>{{categItem.description}}</td><td>{{categItem.price_large | currency : '₹'}}</td>
+  </tr>
+</table>

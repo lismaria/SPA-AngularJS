@@ -1,48 +1,41 @@
-(function(){
-   'use strict' ;
-    var app= angular.module('MenuApp');
-    
-    app.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider){
-        
-        // Redirect to home page if no other URL matches
-        $urlRouterProvider.otherwise('/');
-        
-        // *** Set up UI states ***
-        $stateProvider
-             // Home page
-             .state('home', {
-                url: '/',
-                templateUrl:'src/menuapp/templates/home.template.html'
-            })
+(function () {
+'use strict';
 
-            //Category Page
-            .state('categories',{
-                url: '/categories',
-                templateUrl: 'src/menuapp/templates/categories.template.html',
-                controller: 'categoriesController as categCtrl',
-                resolve: {
-                    categories: ['MenuDataService', function(MenuDataService){
-                        return MenuDataService.getAllCategories();
-                    }]
-                }
-            })
+angular.module('MenuApp')
+.config(RoutesConfig);
 
-            //Category Menu
-            .state('items',{
-                // url: '/categories/{categoryShortName}',
-                url: '/categories/{category}',
-                templateUrl: 'src/menuapp/templates/items.template.html',
-                controller: 'itemsController as itemCtrl',
-                // params: {
-                //     categoryShortName: null,
-                //     categoryName: null
-                // },
-                resolve: {
-                    items: ['$stateParams', 'MenuDataService', function($stateParams, MenuDataService) {
-                        // return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
-                        return MenuDataService.getItemsForCategory($stateParams.category);
-                    }]
-                }
-            });
-    }]);
+RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+function RoutesConfig($stateProvider, $urlRouterProvider) {
+
+  $urlRouterProvider.otherwise('/');
+
+  $stateProvider
+  .state('home', {
+    url: '/',
+    templateUrl: 'src/menuapp/templates/home.template.html'
+  })
+  .state('categoryList', {
+    url: '/category-list',
+    templateUrl: 'src/menuapp/templates/category-list.template.html',
+    controller: 'CategoryListController as cateLstCtrl',
+    resolve: {
+      items: ['MenuDataService', function (MenuDataService) {
+        return MenuDataService.getAllCategories();
+      }]
+    }
+  })
+  .state('items', {
+    url: '/items/{category}',
+    templateUrl: 'src/menuapp/templates/items.template.html',
+    controller: 'ItemsController as itemsCtrl',
+    resolve: {
+      items: ['MenuDataService', '$stateParams', function (MenuDataService, $stateParams) {
+        return MenuDataService.getItemsForCategory($stateParams.category);
+      }]
+    }
+  });
+
+
+}
+
 })();

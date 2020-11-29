@@ -1,0 +1,60 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+body {
+    font-size: 1.2em;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+    display: none;
+  }
+  
+  .loading-icon {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+  }
+  
+  li[ui-sref]:hover {
+    display: inline-block;
+    cursor: pointer;
+    background-color: aquamarine;
+    border: solid black 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    
+  }
+  a{
+      text-decoration: none;
+      padding: 2px 5px;
+      color: black;
+      
+  }
+  a:hover{
+    /* background-color: black;
+    color: white; */
+    display: inline-block;
+    cursor: pointer;
+    background-color: grey;
+    border: solid black 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  li:nth-child(odd),tr:nth-child(odd){
+    background-color: lightpink;
+  }
+  li:nth-child(even),tr:nth-child(even){
+      background-color: mistyrose;
+  }
+  tr:first-child{
+      background-color: black;
+      color:white;
+  }
+  table{
+      padding-top: 25px;
+  }
+  td{
+      padding: 5px;
+  }
