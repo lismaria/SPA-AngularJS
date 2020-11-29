@@ -1,6 +1,7 @@
 (function(){
     'use strict';
     var app= angular.module("data");
+    //var app = angular.module('MenuApp',['data','ui.router']);
     
     app.service('MenuDataService'['$http', 'ApiBasePath', function($http, ApiBasePath){
         var service = this;
@@ -17,9 +18,14 @@
         service.getItemsForCategory=function(categoryShortName){
             return $http({
                 method: 'GET',
-                url: (ApiBasePath + '/menu_items.json?category=' + categoryShortName)
+                url: (ApiBasePath + "/menu_items.json"),
+                //url: (ApiBasePath + '/menu_items.json?category=' + categoryShortName),
+                params: {
+                    category: categoryShortName
+                }
             }).then(function(response){
-                    return response.data.menu_items;
+                    return response.data;
+                    //return response.data.menu_items;
                 });
         };
     }]);
